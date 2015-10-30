@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {   
+//Declaring variabels
+ int A, B, C;
+  
+      Intro();
+      
+      A=ingressoA();
+      B=ingressoB();
+      C=ingressoC();
+      
+      IsabelleCuzona(A,B,C);      
+  }
+//Introduction to the program
+public static void Intro(){
+System.out.print("This program will obtain the number of  ");
+System.out.print("tickets sold at the softball game for each  ");
+System.out.println("class of seats and calculate the total income. ");
+}
+
+//Input of values for each class of seats
+public static int ingressoA(){
+Scanner keyboard = new Scanner(System.in);
+  int A;
+
+  System.out.println("Please enter # of tickets sold for class A: ");
+  A = keyboard.nextInt();
+  
+  return A;
+}
+
+public static int ingressoB(){
+Scanner keyboard = new Scanner(System.in);
+  int B;
+
+  System.out.println("Please enter # of tickets sold for class B: ");
+  B = keyboard.nextInt();
+  
+  return B;
+}
+
+public static int ingressoC(){
+Scanner keyboard = new Scanner(System.in);
+  int C;
+
+  System.out.println("Please enter # of tickets sold for class C: ");
+  C = keyboard.nextInt();
+  
+  return C;
+}
+//Calculation of total income, defying class by its value first
+      public static void IsabelleCuzona(int a, int b, int c){
+      double ValorVendasTotal = 0, Apreco=15, Bpreco=12, Cpreco=9;
+      
+      Apreco=Apreco*a;
+      Bpreco=Bpreco*b;
+      Cpreco=Cpreco*c;
+      
+         ValorVendasTotal = Apreco+Bpreco+Cpreco;
+         //Display total income alue
+         System.out.println("Total income: $"+ValorVendasTotal);
+      } 
+}
