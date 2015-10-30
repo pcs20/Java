@@ -52,9 +52,9 @@ Scanner keyboard = new Scanner(System.in);
   
   return C;
 }
-//Calculation of total income, defying class by its value first
-      public static void IsabelleCuzona(int a, int b, int c){
-      double ValorVendasTotal = 0, Apreco=15, Bpreco=12, Cpreco=9;
+/*Calculation of total income, defying class by its value first
+      *public static void IsabelleCuzona(int a, int b, int c){
+      double ValorVendasTotal = 0, Apreco=15, Bpreco=12, Cpreco=9;*/
       
       Apreco=Apreco*a;
       Bpreco=Bpreco*b;
