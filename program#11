@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+/*
+Em um teatro há três sessões de poltronas e cada classe cobra: sessão A $20,00
+sessão B $15,00 / sessão C $10,00
+O teatro têm 300 poltronas na sessão A, 500 na sessão B e 200 na sessão C.
+Faça um programa que peça o n° de tickets vendidos em cada sessão e depois imprima
+a quantidade de vendas geradas(a grana)
+O programa, deve validar os n° que são entradas para cada sessão.
+*/
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   int ticketsA, ticketsB, ticketsC;
+   
+   do{
+   System.out.println("Enter the # of tickets sold for section A\nSection A hold only 300 seats.");
+   ticketsA = keyboard.nextInt();
+   }while(!validateSectioInput('A', ticketsA));
+   
+   do{
+   System.out.println("Enter the # of tickets sold for section B\nSection B hold only 500 seats.");
+   ticketsB = keyboard.nextInt();
+   }while(!validateSectioInput('B', ticketsB));
+   
+   do{
+   System.out.println("Enter the # of tickets sold for section C\nSection C hold only 200 seats.");
+   ticketsC = keyboard.nextInt();
+   }while(!validateSectioInput('C', ticketsC));  
+  
+   System.out.println("The total income is $"+ ((ticketsA*20)+(ticketsB*15)+(ticketsC*10)));
+      }
+      //Identifier of section
+      public static boolean validateSectioInput(char section, int seatsSold){
+         if(section == 'A' && seatsSold <= 300)
+      return true;
+      
+         if(section == 'B' && seatsSold <= 500)
+      return true;
+      
+         if(section == 'C' && seatsSold <= 200)
+      return true;
+      
+      return false;
+      }
+      
+    }
