@@ -1,0 +1,142 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class Program2_15
+{
+   public static final int ROW = 3;
+   public static final int COLUMN = 3;
+   
+   public static String [][]board = new String[ROW][COLUMN];
+   
+   public static void main(String[] args)
+   {   
+   /*
+   Inicializating board array with 
+   */
+   for(int i = 0; i < ROW; i++){
+      for(int j = 0; j < COLUMN; j++)
+            board[i][j] = "*";
+      }
+do{     
+   displayTable();
+
+      
+   setGame(1, "X");   
+   displayTable();
+   if(gameConditionsVictory()){
+      System.out.println("Play1 -> Wins");
+   break;
+   }
+   
+   if(gameConditionsTie()){
+      System.out.println("It's a tie!");
+      break;
+      }      
+   
+   setGame(2, "O"); 
+   if(gameConditionsVictory()){
+      displayTable();
+      System.out.println("Play2 -> Wins");
+      break;
+   }
+   
+   if(gameConditionsTie()){
+      System.out.println("It's a tie!");
+      break;
+      }
+
+   }while(true);
+     }
+     
+     public static void setGame(int play, String value){
+   Scanner keyboard = new Scanner(System.in);
+     
+   int row;
+   int column;
+   boolean check = true;
+   
+     while(check){
+   System.out.print("Play"+play+" -> Please enter the number of the desired row: ");
+   row = keyboard.nextInt();
+   System.out.print("Play"+play+" -> Please enter the number of the desired column: ");
+   column = keyboard.nextInt();              
+   
+         if(board[row][column].equals("*")){
+            board[row][column] = value;    
+            check = false;
+               }    
+         }
+     }
+     
+     public static boolean gameConditionsTie(){
+     boolean check = false;
+         for(int i = 0; i < ROW; i++){
+      for(int j = 0; j < COLUMN; j++)
+            if(board[i][j].equals("*"))
+               check = true;               
+      }
+         
+         if(!check)
+            return true;
+         else
+            return false;
+     }
+     
+     public static boolean gameConditionsVictory(){
+     /*
+     *Verifying rows
+     */
+         if(board[0][0].equals("X") && board[0][1].equals("X") && board[0][2].equals("X") ||
+         board[0][0].equals("O") && board[0][1].equals("O") && board[0][2].equals("O"))
+            return true;
+         else
+         if(board[1][0].equals("X") && board[1][1].equals("X") && board[1][2].equals("X") ||
+         board[1][0].equals("O") && board[1][1].equals("O") && board[1][2].equals("O"))
+            return true;
+         else
+         if(board[2][0].equals("X") && board[2][1].equals("X") && board[2][2].equals("X") ||
+         board[2][0].equals("O") && board[2][1].equals("O") && board[2][2].equals("O"))
+            return true;
+         else
+     /*
+     *Verifying columns
+     */
+         if(board[0][0].equals("X") && board[1][0].equals("X") && board[2][0].equals("X") ||
+         board[0][0].equals("O") && board[1][0].equals("O") && board[2][0].equals("O"))
+            return true;
+         else
+         if(board[0][1].equals("X") && board[1][1].equals("X") && board[2][1].equals("X") ||
+         board[0][1].equals("O") && board[1][1].equals("O") && board[2][1].equals("O"))
+            return true;
+         else
+         if(board[0][2].equals("X") && board[1][2].equals("X") && board[2][2].equals("X") ||
+         board[0][2].equals("O") && board[1][2].equals("O") && board[2][2].equals("O"))
+            return true;
+         else
+     /*
+     *Verifying diagonal
+     */
+         if(board[0][0].equals("X") && board[1][1].equals("X") && board[2][2].equals("X") ||
+         board[0][0].equals("O") && board[1][1].equals("O") && board[2][2].equals("O"))
+            return true;
+         else
+         if(board[0][2].equals("X") && board[1][1].equals("X") && board[2][0].equals("X") ||
+         board[0][2].equals("O") && board[1][1].equals("O") && board[2][0].equals("O"))
+            return true;
+           
+         
+     return false;
+     }
+          
+  public static void displayTable(){
+  for(int i = 0; i < ROW; i++){
+      for(int j = 0; j < COLUMN; j++)
+      if(j == 2)
+            System.out.print(board[i][j]+"\n");
+            
+      else
+            System.out.print(board[i][j]);              
+      }
+  
+     
+     }
+}
