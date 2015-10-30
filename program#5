@@ -1,0 +1,32 @@
+public class Program2_15
+{
+/*
+Faça um programa de loop que permita o usuario entrar uma serie de 
+números. O usuario, deve entrar com -99 para sinalizar o final da série
+depois que todos os numeros tenham sido colocados pelo usuário, o programa 
+deve dizer o maior e o menor número.
+*/
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   
+int valorMaximo, valorMinimo, valorUsuario;
+      System.out.println("Entre com qualquer número. Se desejar sair, entre com -99");
+      valorUsuario = keyboard.nextInt();
+      
+      valorMaximo = valorUsuario;
+      valorMinimo = valorUsuario;
+      
+      while(valorUsuario != -99){
+      if(valorUsuario > valorMaximo)
+      valorMaximo = valorUsuario;
+      
+      if(valorUsuario < valorMinimo)
+      valorMinimo = valorUsuario;
+      
+      valorUsuario = keyboard.nextInt();
+      }
+      
+      System.out.println("Meu valor maximo: "+valorMaximo+"\nMeu valor minimo: "+valorMinimo);
+   }      
+ }
