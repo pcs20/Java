@@ -1,0 +1,90 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Program2_15
+{
+/*
+
+projetar um programa que pede ao usuário para digitar um número de conta de cobrança .
+o programa deve determinar se os numros sao válidos comparando-os com a seguinte lista de número 
+de conta de cobrança válidos0
+5658845
+8080152
+1005231
+4520125
+4562555
+6545231
+7895122
+5552012
+3852058
+8777541
+5050552
+7576651
+8451277
+7825877
+7881200
+1302850
+1250255
+4581002
+estes números devem ser armazenadas em um array.
+use o sequential search algorithm para localizar o número digitado pelo corno do usuario.
+Se o número é na array deve exibir o programa indicando o número é válido.
+Se o número não se encontra na array deve indicar que o número é inválido.
+
+ */
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+     
+     
+   int chargeNumber;  
+   int []numberSeries = {
+5658845,
+8080152,
+1005231,
+4520125,
+4562555,
+6545231,
+7895122,
+5552012,
+3852058,
+8777541,
+5050552,
+7576651,
+8451277,
+7825877,
+7881200,
+1302850,
+1250255,
+4581002};
+try{
+   System.out.println("Please enter with your charge account number: ");
+   chargeNumber = keyboard.nextInt();
+   
+      if(sequentialSearch(numberSeries, chargeNumber))
+   System.out.println("This number is valid.");
+       else
+   System.out.println("This number is invalid.");
+   
+   }
+     
+   catch ( InputMismatchException ex )
+    { 
+    System.out.println("You entered bad data." );
+    System.out.println("Run the program again." );
+    }           
+       }      
+       
+       public static boolean sequentialSearch(int[] array, int value){
+       String str = Integer.toString(value);
+      if(str.length() != 7)
+        return false;
+              
+         for (int i : array) {
+      if (i ==  value){
+        return true;
+      }
+    }
+    return false; 
+  }       
+ }
