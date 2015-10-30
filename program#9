@@ -1,0 +1,65 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Program2_15
+{
+static final int MAX = 6;
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   Random randomNumbers = new Random();   
+   String slotImages[] = {"Cherries", "Oranges", "Plums", "Bells", "Melons", "Bars"};
+   
+   int choice;
+   double moneyUser;
+   double moneyReceived;
+   double totalReceived = 0;
+   double totalGambled = 0;
+   
+   int firstImage;
+   int secondImage;
+   int thirdImage;
+   
+   //adding value in object
+   
+   do{
+   System.out.println("Please enter the value of dollars you wish to insert in the machine:");
+   moneyUser = keyboard.nextDouble();
+   
+   firstImage = randomNumbers.nextInt(6);
+   secondImage = randomNumbers.nextInt(6);
+   thirdImage = randomNumbers.nextInt(6);
+   
+   System.out.println("["+slotImages[firstImage]+"]|["+slotImages[secondImage]+"]|["+slotImages[thirdImage]+"]");
+   
+   if(firstImage == secondImage && firstImage == thirdImage){
+   moneyReceived = (moneyUser*3);
+   totalReceived += moneyReceived;
+   }
+      else
+   if(firstImage == secondImage || firstImage == thirdImage || secondImage == thirdImage){
+   moneyReceived = (moneyUser*2);
+   totalReceived += moneyReceived;
+   }
+      else{
+   moneyReceived = 0;
+   totalReceived += moneyReceived;
+   }
+   
+   System.out.println("ATENTION! if input something order than 0 the game will continue.");
+   System.out.println("Do you wish to continue playing?[1]-Yes [0]-No: ");
+   choice = keyboard.nextInt();
+   totalGambled += moneyUser;
+         }while(keepPlaying(choice));
+         
+         System.out.println("End of game.");
+         System.out.println("Initial entered money: $"+totalGambled+"\nTotal final amount: $"+totalReceived);
+         
+      } 
+      public static boolean keepPlaying(int choice){
+           if(choice == 1)
+          return true;
+            else
+          return false;
+      } 
+ }
