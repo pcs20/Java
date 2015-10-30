@@ -38,7 +38,7 @@ Se o número não se encontra na array deve indicar que o número é inválido.
      
      
    int chargeNumber;  
-   int []numberSeries = {
+   int []numberSeries = new int[]{
 5658845,
 8080152,
 1005231,
