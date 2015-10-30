@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+/*
+ Faça um programa que calcule e imprima um numero de milhas por horas(m/h)
+ q um carinha está acima da velocidade permitida. o programa pergunta
+ o limite da velocidade e a velocidade do carinha. validar as informações com as
+ seguintes info:
+ limite de velocidade deve ser pelo menos 20 mas não mais que 70
+ velocidade do carinha deve ser pelo menos o valor entrado para o limite de velocidade
+ [caso contrario ele nao está correndo].
+*/
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+     
+   int overSpeed, driversSpeed, speedLimit;
+   
+   do{
+   System.out.println("Please enter with the speed limit (should not be greater than 70 or less than 20mph). ");
+   speedLimit = keyboard.nextInt();
+   }while(speedLimit < 20 || speedLimit > 70);
+     
+     System.out.println("Please enter the driver's speed: ");
+     driversSpeed = keyboard.nextInt();
+     
+   while(!AnalizingSpeedLimit(driversSpeed, speedLimit)){
+     System.out.println("The driver's speed is below the limit.\nPlease enter the driver's speed: ");
+     driversSpeed = keyboard.nextInt();
+   }
+
+         //Calculation on how much over the speed limit the driver is
+         overSpeed = driversSpeed - speedLimit;
+         if(overSpeed > 0)
+            System.out.println("The driver is "+overSpeed+"mph over the speed limit.");
+         else
+            System.out.println("The driver is driving within the speed limit. "+overSpeed+"mph over the speed limit.");
+   }  
+   
+   public static boolean AnalizingSpeedLimit(int driversSpeed, int speedLimit){
+   if(driversSpeed >= speedLimit)
+      return true;
+   else
+      return false;   
+   }
+       
+ }
