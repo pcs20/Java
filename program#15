@@ -1,0 +1,58 @@
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
+public class Program2_15
+{
+/*
+ faça um programa que peça ao usuário entrar uma série de 20 n° o programa deve guardar esse n° em uma array
+ e depois demonstrar as seguintes info:
+ o menor n° do array, o maior, o número total de números, média de números.
+ */
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   int SIZE = 20;
+   int position = 0;
+   int sum;
+   int smallestValue;
+   int biggestValue;
+   double average;
+     
+   int []numberSeries = new int[SIZE];
+   
+   do{
+   System.out.println("Please enter with a series of number, you cannot exced 20 numbers.");
+   numberSeries[position] = keyboard.nextInt();
+    
+   position++;  
+   }while(position < SIZE); 
+   /*
+   *Inicializing the smallest and biggest value on the first position of thearray
+   */
+   smallestValue = numberSeries[0];
+   biggestValue = numberSeries[0];
+   
+     for(int i = 0; i < SIZE; i++){
+     if(numberSeries[i] < smallestValue)
+         smallestValue = numberSeries[i];
+         
+      if(numberSeries[i] > biggestValue)
+         biggestValue = numberSeries[i];
+     }
+
+    /*
+    *Get the sum of numbers in the array
+    */      
+    sum = IntStream.of(numberSeries).sum();
+    /*
+    *Get the average
+    */ 
+    average = (double)sum/(double)SIZE;
+    
+    System.out.println("The lowest number in the array:"+smallestValue);
+    System.out.println("The highest number in the array:"+biggestValue);
+    System.out.println("The total of the numbers:"+sum);
+    System.out.println("The average of the numbers:"+average);
+      
+       }      
+ }
