@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Program10
+{
+   public static void main(String[] args)
+   {
+
+   
+   double weight, height;
+   Scanner keyboard = new Scanner(System.in);
+  
+  System.out.println("Enter your weight in pounds: ");
+  weight =  keyboard.nextDouble();
+  
+  System.out.println("Enter your height in inches: ");
+  height =  keyboard.nextDouble();
+  
+  System.out.println("BMI: "+BMICalc(weight, height));
+  BMI(BMICalc(weight, height));
+  
+   }  
+ 
+   public static double BMICalc (double weight, double height) {
+   double Math;
+   
+   Math = ((weight*703) / (height*height));
+   
+   return BMICalc;   
+   }    
+   
+   public static void BMI(double BMIResult){
+   if (BMIResult < 18.5)
+   System.out.println("You're underweight. ");
+   else
+   if (BMIResult > 25.0)
+   System.out.println("You're overweight.");
+   else
+   System.out.println("Ideal weight.");
+   } 
+ }
