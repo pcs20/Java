@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+/*
+programa tem que pedir ao viado do usuario que ele coloque o preco em dolar da hora de trabalho. 
+o preco tem que ser entre 7,50 e 18,25. as horas de trabalho nao podem ser menores do que 0 e maiores que 40.
+o programa tem que calcular o quanto o trabalhador viado vai ganhar (preco do traalho*horas)
+O usuário coloca o valor das horas de trabalho.
+*/
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   double priceLabor;
+   int hoursLabor; 
+   
+   do{
+   System.out.println("Enter with hourly pay rate (should not exceed $18.25 or be less than $7.50). If you enter something ordered than that the program will ask you again.");
+   priceLabor = keyboard.nextDouble();
+   }while(priceLabor > 7.50 && priceLabor < 18.25);
+   
+   do{
+   System.out.println("Please enter the hours of labor (should not be less than 0 or greater than 40). If you enter something ordered than that the program will ask you again.");
+   hoursLabor = keyboard.nextInt();
+   }while(hoursLabor >= 0 && hoursLabor <= 40);
+   
+   
+   System.out.println("Employee's gross pay is $"+(priceLabor*hoursLabor));
+       
+      } 
+    }
