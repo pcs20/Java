@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Program2_15
+{
+/*
+case-insensitive comparison
+*/
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   Random randomNumbers = new Random();
+   
+   int numberGenerated;
+   numberGenerated = randomNumbers.nextInt(3); 
+
+   String userSelection;
+   
+      
+   
+   //While the user's input is not right, the program will ask again.
+   do{
+   System.out.println("Please enter your choice of rock, paper or scissors: "+numberGenerated);
+   userSelection = keyboard.next();
+   }while(!userSelection.equalsIgnoreCase("rock") && !userSelection.equalsIgnoreCase("paper") && !userSelection.equalsIgnoreCase("scissors"));
+  
+  //Transforming choice into all lower case to be accepted in the conditions asked in the next function
+   gamerRound(numberGenerated, userSelection.toLowerCase());
+  
+   }  
+   public static void gamerRound(int numberGenerated, String userSelection){
+   if(numberGenerated == 1 && userSelection.equals("scissors") || numberGenerated == 2 && userSelection.equals("rock") || numberGenerated == 0 && userSelection.equals("paper"))
+   System.out.print("The computer chose "+ComputersChoice(numberGenerated)+". The computer won!");
+   else
+   if(numberGenerated == 1 && userSelection.equals("rock") || numberGenerated == 2 && userSelection.equals("paper") || numberGenerated == 0 && userSelection.equals("scissors"))
+   System.out.print("It's a tie!");
+   else
+   System.out.print("You won! The computer chose "+ComputersChoice(numberGenerated));
+   }
+   
+   public static String ComputersChoice(int number){
+   String choice = null;
+   
+   if(number == 1)
+   choice = "rock";
+   
+   if(number == 2)
+   choice = "paper";
+   
+   if(number == 0)   
+   choice = "scissors";
+   
+   return choice;
+   }    
+ }
