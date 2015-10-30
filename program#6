@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {
+   
+   Scanner keyboard = new Scanner(System.in);
+   
+   int factorialNumber, finalNumber = 1, resultFactorial = 0;
+   
+ System.out.println("Please enter a nonnegative interger and I'll display it's factorial:");
+ factorialNumber = keyboard.nextInt();
+ 
+ System.out.print(factorialNumber+"! = ");
+ for (int i = 1; i <= factorialNumber; i++){
+ finalNumber = finalNumber * i;
+ 
+ if(i == factorialNumber)
+ resultFactorial = finalNumber;
+ 
+ System.out.print(i);
+ 
+ if(i != factorialNumber)
+ System.out.print("*");
+  }
+  System.out.print(" = "+resultFactorial);
+ }      
+}
