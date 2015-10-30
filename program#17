@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+     
+   int index = 0;  
+   int chargeNumber;  
+   int []empId = new int[]{
+56588,
+78951,
+87775,
+84512,
+75804,
+45201,
+13028
+};
+
+int []hours = new int[7];
+double []payRate = new double[7];
+double []wages = new double[7];
+
+do{
+System.out.println("Please enter the number of hours worked by employee '"+empId[index]+"':");
+hours[index] = keyboard.nextInt();
+System.out.println("Please enter the pay rate of this employee");
+payRate[index] = keyboard.nextDouble();
+index++;
+}while(index < 7);
+ 
+ for(int i = 0; i < 7; i++)
+   display(empId, finalWageCalculator(hours, payRate, wages, i), i);      
+       
+}
+       
+ public static double finalWageCalculator(int []hours, double []payRate, double []wages, int index){
+   wages[index] = (double)hours[index] * payRate[index];
+ 
+   return wages[index];
+ }
+ 
+ public static void display(int []empId, double wages, int index){
+   System.out.println("The employee '"+empId[index]+"' gross wage is $"+wages);    
+   }
+}
