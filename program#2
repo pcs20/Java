@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {   
+   /*
+   Uma companhia de pintura, determinou que para cada 115 pés quadrados de parede
+   Um galão de tinta e 8 horas de trabalho serão necessários.
+   A companhia cobra 20 dolares por hora de trabalho. Faça um programa modular
+   Que peça ao usuário o número de pes quadrados de parede que serão pintados e
+   o preço da tinta por galão. O programa deverá imprimir as seguintes info:
+   Número de galões de tinta necessários; quantas horas de trabalho necessário;
+   o preço da tinta; o valor total do trabalho; O valor de tudo junto.
+   */
+   
+   //INFORMA O PREÇO DA TINTA E A METRAGEM
+   
+//Declaring variabels
+ double paint, walls;
+  
+      intro();
+      
+      paint = priceGallon();
+      walls = squareFeet();
+      
+      finalprice(paint, walls)  ;  
+  } 
+  //Defining the functions
+  public static void intro(){
+  System.out.println("This program calculates the value of a total paint job.");
+  }
+  
+  public static double priceGallon(){
+  Scanner keyboard = new Scanner(System.in);
+  double paint;
+  
+  System.out.println("Please enter the value of the paint per gallon:");
+  paint =  keyboard.nextDouble();
+  
+  return paint;
+  }
+  
+   public static double squareFeet(){
+  Scanner keyboard = new Scanner(System.in);
+  double walls;
+  
+  System.out.println("Please enter the value how many square foots will be painted:");
+  walls =  keyboard.nextDouble();
+  
+  return walls;
+  }
+//Calculation
+      public static void finalprice (double paint, double walls){
+      
+      double pes = 115, valorPorHora = 20, numeroGalao=0, HorasNeed=0, custoPintura=0, valorTrabalho=0, custoPorArea=0, total=0;
+      int galao = 1, hours = 8;
+      
+      custoPorArea = walls/pes;
+      numeroGalao = galao*custoPorArea;
+      HorasNeed = hours*custoPorArea;
+      custoPintura = numeroGalao*paint;
+      valorTrabalho = HorasNeed*valorPorHora;
+      total = custoPintura+valorTrabalho;
+      
+      System.out.println("galões necessarios: "+numeroGalao);
+      System.out.println("horas de trabalho necessarios: "+HorasNeed);
+      System.out.println("preço da tinta: "+custoPintura);
+      System.out.println("Valor total trabalho: "+valorTrabalho);
+      System.out.println("Valor total trabalho: "+total);      
+      } 
+  
+}
