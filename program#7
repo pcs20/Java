@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   int dividend, divisor, prime;
+   
+   for(dividend = 1; dividend <= 100; dividend++){
+   prime = 0;
+   for(divisor = 1; divisor <= dividend; divisor++)
+      if (isPrime(dividend, divisor))
+      prime++;
+      if (prime <= 2)
+      System.out.print(""+dividend+" ");
+   }      
+ }      
+ 
+ public static boolean isPrime(int dividend, int divisor){
+ if (dividend % divisor == 0)
+ return true;
+ else
+ return false; 
+ }
+}
