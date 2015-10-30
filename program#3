@@ -4,10 +4,7 @@ public class Program2_15
 {
    public static void main(String[] args)
    {   
-   /*2->6  6->10 10->....
-   coloca peso, se for mais de 2 kg, taxa de entrega 1,10 dolares. Os proximos 4 kg custa 2,20.
-   Os proximos 4, custam 3,70. Mais de 10kg, custa 3,80;
-   
+   /*/*   
 1st 2 pounds cost $1.10/pound
 
 next 4 pounds cost $2.20/pound
@@ -31,55 +28,55 @@ Example: 12.5 pounds would cost:
    */
 
 Scanner keyboard = new Scanner(System.in);
-  double peso;
+  double weight;
   
-  System.out.println("Entre com um peso: ");
-  peso =  keyboard.nextDouble();
+  System.out.println("Enter the package weight in pounds: ");
+  weight =  keyboard.nextDouble();
   
 
-   System.out.println("Valor: "+MyPrice(peso, 1.10, 2.20, 3.70, 3.80)); 
+   System.out.println("Value: $"+MyPrice(weight, 1.10, 2.20, 3.70, 3.80)); 
    }  
    
-   public static double MyPrice(double peso, double value, double value1, double value2, double value3){
+   public static double MyPrice(double weight, double value, double value1, double value2, double value3){
   double val, price=0;
   
-   if(peso>2.0 && peso<=6.0){
+   if(weight>2.0 && weight<=6.0){
    val = 2*value;
    price = price+val;
-   peso-=2;
+   weight-=2;
    //---------------
-   peso = peso*value1;
-   price = price+peso;
+   weight = weight*value1;
+   price = price+weight;
  }
 else
-   if(peso>6.0 && peso<=10.0){
+   if(weight>6.0 && weight<=10.0){
    val = 2*value;
    price = price+val;
-   peso-=2;
+   weight-=2;
    //---------------
    val = 4*value1;
    price = price+val;
-   peso-=4;
+   weight-=4;
    //----------------
-   peso = peso*value2;
-   price = price+peso;
+   weight = weight*value2;
+   price = price+weight;
    }
 else
-   if(peso>10.0){
+   if(weight>10.0){
    val = 2*value;
    price = price+val;
-   peso-=2;
+   weight-=2;
    //---------------
    val = 4*value1;
    price = price+val;
-   peso-=4;
+   weight-=4;
    //----------------
    val = 4*value2;
    price = price+val;
-   peso-=4;
+   weight-=4;
    //----------------
-   peso = peso*value3;
-   price = price+peso;
+   weight = weight*value3;
+   price = price+weight;
    }
  
  return price;
