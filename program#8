@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Program2_15
+{
+   public static void main(String[] args)
+   {
+   Scanner keyboard = new Scanner(System.in);
+   Random randomNumbers = new Random();
+   
+   int userSelection, numberGenerated;
+   numberGenerated = randomNumbers.nextInt(3)+1;   
+   
+   System.out.println("Please enter your choice of rock(1), paper(2) or scissors(3):");
+   userSelection = keyboard.nextInt();  
+   
+   gamerRound(numberGenerated, userSelection);
+  
+   }  
+   public static void gamerRound(int numberGenerated, int userSelection){
+   if(numberGenerated == 1 && userSelection == 3 || numberGenerated == 2 && userSelection == 1 || numberGenerated == 3 && userSelection == 2)
+   System.out.print("The computer chose "+ComputersChoice(numberGenerated)+". The computer won!");
+   else
+   if(numberGenerated == 1 && userSelection == 1 || numberGenerated == 2 && userSelection == 2 || numberGenerated == 3 && userSelection == 3)
+   System.out.print("It's a tie!");
+   else
+   System.out.print("You won! The computer chose "+ComputersChoice(numberGenerated));
+   }
+   
+   public static String ComputersChoice(int number){
+   String choice;
+   
+   if(number==1)
+   choice = "rock";
+   if(number==2)
+   choice = "paper";
+   else
+   choice = "scissors";   
+   
+   return choice;
+   }    
+ }
