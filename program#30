@@ -1,0 +1,73 @@
+public static void main(String[] args) throws IOException {
+        boolean continuePlayer = true;
+        String player;
+        int score;
+        int select;
+        int selectUser;
+
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("\tSpringfork Amateur Golf Club Menu");
+        System.out.println("1. Insert new player and score");
+        System.out.println("2. Display all scores");
+        System.out.println("3. Quit");
+        
+        selectUser = keyboard.nextInt();
+        
+        switch (selectUser) {
+                case 1:
+        PrintWriter fileGolf = new PrintWriter("golf.dat");
+
+        while (continuePlayer) 
+        {
+            System.out.print("Please enter the player's name:");
+            player = keyboard.next();
+            System.out.print("Please enter the player's score:");
+            score = keyboard.nextInt();
+            
+            fileGolf.println(player);
+            fileGolf.println(score);
+            
+            do{
+            System.out.print("Do you wish to continue? 1-yes 2-no: ");
+            select = keyboard.nextInt();
+
+            switch (select) {
+                case 1:
+                    continuePlayer = true;
+                    break;
+                case 2:
+                    continuePlayer = false;
+                    break;
+                default:
+                    System.out.println("This is not a valid input.");
+            }
+            }while(select != 1 && select != 2);
+        }
+
+        fileGolf.close();
+            break;
+        case 2:
+        String getPlayer;
+        int getScore;
+        
+        Scanner openFileGolf = new Scanner(new File("golf.dat"));
+      
+      while (openFileGolf.hasNext())
+      {
+          getPlayer = openFileGolf.nextLine();
+          getScore = openFileGolf.nextInt();
+          openFileGolf.nextLine();
+          
+          System.out.println(getPlayer+" "+getScore);
+      }
+      
+      openFileGolf.close();
+            break;
+        case 3:
+            System.out.println("The program ended successfully");
+            break;
+        default:
+            System.out.println("Invalid choice.");  
+        }
+    }
