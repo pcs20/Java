@@ -1,0 +1,30 @@
+public static void main(String[] args) throws IOException {
+        String generalName;
+        String name;
+        int received;
+        int minimum;   
+                
+        Scanner openFileGolf = new Scanner(new File("golf.dat"));
+        
+        name = openFileGolf.next();
+        minimum = openFileGolf.nextInt();
+        
+        System.out.println(name+" "+minimum);
+      
+      while (openFileGolf.hasNext())
+      {
+          generalName = openFileGolf.next();
+          received = openFileGolf.nextInt();
+          
+          if(minimum > received){
+              minimum = received;
+              name = generalName;
+          }
+          
+          System.out.println(generalName+" "+received);    
+      }        
+      
+      openFileGolf.close();
+      
+      System.out.println("The player with the best score is: "+name);
+    }
