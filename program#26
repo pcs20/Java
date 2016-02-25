@@ -1,0 +1,37 @@
+public static void main(String[] args) throws IOException {
+        int ID, auxID, i = 0;
+        double sales, salesAux, amount = 0.0, totalAmount = 0.0;
+
+        Scanner openFileInputfile = new Scanner(new File("inputfile#8.dat"));
+
+        auxID = openFileInputfile.nextInt();
+        salesAux = Double.parseDouble(openFileInputfile.nextLine());
+        amount = salesAux;
+        totalAmount = amount;
+
+        System.out.println("Salesperson ID      Sale Amount");
+        System.out.println(auxID + "                   $" + salesAux);
+        while (openFileInputfile.hasNext()) {
+            ID = openFileInputfile.nextInt();
+            sales = Double.parseDouble(openFileInputfile.nextLine());
+            System.out.println(ID + "                   $" + sales);
+            if (ID == auxID) {
+                i++;
+                amount = amount + sales;
+                totalAmount += sales;
+            }
+            if (ID != auxID) {
+                i = 0;
+                auxID = ID;
+                amount = sales;
+                totalAmount += sales;
+            }
+
+            if (i == 2) {
+                System.out.println("Total" + "                 $" + amount + "\n");
+            }
+        }
+        openFileInputfile.close();
+
+        System.out.println("Total of All Sales:   $" + totalAmount);
+    }
