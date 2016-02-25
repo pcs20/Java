@@ -1,0 +1,29 @@
+public class TarefasDaMozona {
+    /*
+     Faça uma função que aceite use recursão para elevar um número a uma certa potência. A função deve aceitar dois argumentos: um número a ser elevado
+    a poetencia e o expoente.
+    Assuma que o expoente é um inteiro não negativo.
+     */
+
+    public static void main(String[] args) {
+        int value;
+        int exponent;
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Please enter with a number to be raised:");
+        value = keyboard.nextInt();
+        System.out.println("Please enter with an exponent:");
+        exponent = keyboard.nextInt();
+
+        System.out.println("The power of " +value+" raised by " +exponent+" is: " + intRecurseived(value, exponent));
+
+    }
+
+    public static int intRecurseived(int value, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        } else {
+            return value * intRecurseived(value, exponent - 1);
+        }
+    }
+}
