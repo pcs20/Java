@@ -1,0 +1,43 @@
+public static void main(String[] args)
+    {
+        int select;
+        
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("\tSelect a Planet");
+        System.out.println("1. Mercury");
+        System.out.println("2. Venus");
+        System.out.println("3. Earth");
+        System.out.println("4. Mars");
+        System.out.println("5. Quit");
+        
+        select = keyboard.nextInt();
+            switch (select) 
+            {
+                case 1:
+                    System.out.println("Average distance from the sun 57.9 million kilometers");
+                    System.out.println("Mass 3,31x10^23 kg");
+                    System.out.println("Surface temperature -73 to 430 Celsius");
+                    break;
+                case 2:
+                    System.out.println("Average distance from the sun 108.2 million kilometers");
+                    System.out.println("Mass 4.87x10^24 kg");
+                    System.out.println("Surface temperature 472 Celsius");
+                    break;
+                case 3:
+                    System.out.println("Average distance from the sun 149.6 million kilometers");
+                    System.out.println("Mass 5.967x10^24 kg");
+                    System.out.println("Surface temperature -50 to 50 Celsius");
+                    break;
+                 case 4:
+                    System.out.println("Average distance from the sun 227.9 million kilometers");
+                    System.out.println("Mass 0.6424x10^24 kg");
+                    System.out.println("Surface temperature -140 to 20 Celsius");
+                    break;
+                case 5:
+                    System.out.println("The program ended successfully");
+                    break;
+                default:
+                    System.out.println("Invalid choice.");                   
+            }
+    }
