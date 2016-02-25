@@ -1,0 +1,51 @@
+public static void main(String[] args) throws IOException {
+        boolean continuePlayer = true;
+        String player;
+        int score;
+        int select;
+
+        Scanner keyboard = new Scanner(System.in);
+
+        PrintWriter fileGolf = new PrintWriter("golf.dat");
+
+        while (continuePlayer) 
+        {
+            System.out.print("Please enter the player's name:");
+            player = keyboard.next();
+            System.out.print("Please enter the player's score:");
+            score = keyboard.nextInt();
+            
+            fileGolf.println(player+" "+score);
+            
+            do{
+            System.out.print("Do you wish to continue? 1-yes 2-no: ");
+            select = keyboard.nextInt();
+
+            switch (select) {
+                case 1:
+                    continuePlayer = true;
+                    break;
+                case 2:
+                    continuePlayer = false;
+                    break;
+                default:
+                    System.out.println("This is not a valid input.");
+            }
+            }while(select != 1 && select != 2);
+        }
+
+        fileGolf.close();
+        
+        String imprime;
+        
+        Scanner openFileGolf = new Scanner(new File("golf.dat"));
+      
+      while (openFileGolf.hasNext())
+      {
+          imprime = openFileGolf.nextLine();
+          
+          System.out.println(imprime);
+      }
+      
+      openFileGolf.close();
+    }
