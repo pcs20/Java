@@ -1,0 +1,21 @@
+// Program 10-1
+
+import java.io.*;
+
+public class Program10_1
+{
+   public static void main(String[] args) throws IOException
+   {
+      // Declare a PrintWriter variable named myFile and open a
+      // file named philosphers.dat.
+      PrintWriter myFile = new PrintWriter("philosophers.dat");
+      
+      // Write the names of three philosophers to the file.
+      myFile.println("John Locke");
+      myFile.println("David Hume");
+      myFile.println("Edmund Burke");
+      
+      // Close the file.
+      myFile.close();
+   }
+}
