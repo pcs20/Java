@@ -1,0 +1,26 @@
+public class TarefasDaMozona {
+    /*
+     Faça uma função que aceite um argumento inteiro e retorne a soma de todos os inteiros de 1 até o número passado como argumento. Por exemplo se 50 é passado
+     como argumento, a função irá retorna a soma de 1, 2, 3, 4 ... 50.
+     Use recursão para calcula soma.    
+     */
+
+    public static void main(String[] args) {
+        int value;
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Please enter with an interger:");
+        value = keyboard.nextInt();
+
+        System.out.println("The sum is " + intRecurseived(value));
+
+    }
+
+    public static int intRecurseived(int value) {
+        if (value == 0) {
+            return 0;
+        } else {
+            return value + intRecurseived(value - 1);
+        }
+    }
+}
