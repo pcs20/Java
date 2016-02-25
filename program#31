@@ -1,0 +1,26 @@
+public static String aux;
+    public static void main(String[] args) throws IOException {
+        String received;
+        String list = "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZ0123456789?!.,;:/";
+
+        Scanner input = new Scanner(new File("input.txt"));
+
+        while (input.hasNext()) {
+            received = input.nextLine();
+            StringBuilder str = new StringBuilder(received);
+            
+            for(int i = 0; i < received.length() ; i++){
+                for(int j = 0; j < list.length() ; j++)
+                if(received.charAt(i) == list.charAt(j))
+                    str.setCharAt(i, list.charAt(j+1));
+            }
+            aux = str.toString();
+        }
+        input.close();
+        
+        PrintWriter output = new PrintWriter(new File("output.txt"));
+      
+          output.println(aux);
+    
+      output.close();
+    }
